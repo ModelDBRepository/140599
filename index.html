@@ -1,0 +1,40 @@
+<html><pre>
+This is the weblink for the models and algorithms associated with the
+paper
+
+<a href="http://dx.doi.org/10.1007/s10827-011-0341-0">
+Mechler F, Victor JD (2012) Dipole characterization of single neurons
+from their extracellular action potentials. J Comput Neurosci </a>
+
+Authors: Ferenc Mechler & Jonathan Victor
+e-mail:	 fmechler@med.cornell.edu
+
+The <a href="http://senselab.med.yale.edu/modeldb/data/DipoleLocalizationKit.zip">DipoleLocalizationKit</a> archives in its 3 parts: (i) Matlab code of
+the neuron localization algorithm; (ii) the lead fields (and lead
+potentials) of 4 Thomas tetrodes precomputed in a FEM model and saved
+in Matlab [struct] format; and (iii) real extracellular action
+potential (EAP) data from 3 single neurons in visual cortex, plus the
+results of the localization algorithm applied to them; all in Matlab
+[struct] format. An enclosed ReadMe document explains the use of these
+tools and data.
+
+We localize a single neuron from the spatial sample of its EAP
+amplitudes recorded with a multisite probe (with 6 or more independent
+measurement sites or channels, e.g., a silicon polytrode, a stepped
+tetrode, etc.) This is an inverse problem and we solve it by fitting a
+model to the EAPs that consists of a volume conductor model of the
+neural tissue (known), a realistic model of the probe (known), and a
+single dipole current source of the model neuron (unknown). The dipole
+is free to change position, size, and orientation (a total of 6
+parameters) at each moment during the action potential.
+
+This algorithm numerically solves the dipole optimization problem on a
+discrete grid in two, separable, stages. The first stage, a linear
+dipole moment optimization (location is fixed), is solved everywhere
+on the grid using the lead fields (LFs). The LFs are required input to
+this algorithm and assumed to be pre-calculated. (Software to compute
+LFs is not provided here. LFs can be calculated by, e.g., the finite
+element method; for details of LF computations, see Mechler & Victor
+(2012).) The second stage, a nonlinear global optimization of the
+source location, is solved using Tikhonov regularization.
+</pre></html>
